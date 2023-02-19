@@ -9,8 +9,11 @@ import pro.sky.simplerecipes.services.IngredientService;
 
 @RestController
 @RequestMapping("/ingredient")
-@RequiredArgsConstructor
 public class IngredientController {
+
+    public IngredientController(IngredientService ingredientService) {
+        this.ingredientService = ingredientService;
+    }
 
     private final IngredientService ingredientService;
 
