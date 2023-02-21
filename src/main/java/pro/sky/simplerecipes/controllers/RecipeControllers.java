@@ -1,5 +1,6 @@
 package pro.sky.simplerecipes.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import pro.sky.simplerecipes.model.Recipe;
 import pro.sky.simplerecipes.services.RecipeService;
@@ -15,12 +16,12 @@ public class RecipeControllers {
     }
 
     @GetMapping("/{id}")
-    Recipe getRecipe(@PathVariable Integer id) {
+    Recipe getRecipe(@PathVariable long id) {
         return recipeService.getRecipe(id);
     }
 
     @PostMapping
-    Recipe addRecipe(@RequestBody Recipe recipe) {
+    Recipe addRecipe(@Valid @RequestBody Recipe recipe) {
         return recipeService.addRecipe(recipe);
     }
 }

@@ -11,8 +11,8 @@ import java.util.Map;
 @Service
 public class RecipeServiceImpl implements RecipeService {
 
-    private final Map<Integer, Recipe> recipeMap = new HashMap<>();
-    private static Integer id = 0;
+    private final Map<Long, Recipe> recipeMap = new HashMap<>();
+    private static long id = 0;
 
     @Override
     public Recipe addRecipe(Recipe recipe) {
@@ -21,7 +21,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe getRecipe(Integer id) {
+    public Recipe getRecipe(long id) {
         return recipeMap.getOrDefault(id,null);
     }
 }
