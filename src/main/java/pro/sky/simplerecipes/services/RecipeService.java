@@ -6,5 +6,5 @@ public interface RecipeService {
 
     Recipe addRecipe(Recipe recipe);
 
-    Recipe getRecipe(Integer id);
+    Recipe getRecipe(long id);
 }
