@@ -17,10 +17,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Integer addRecipe(Recipe recipe) {
-        for (Recipe recipes : recipeMap.values()) {
-            if (recipes.equals(recipe)) {
-                return null;
-            }
+        if (recipeMap.containsValue(recipe)) {
+            return null;
         }
         recipeMap.put(id, recipe);
         return id++;
@@ -28,12 +26,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe getRecipe(Integer id) {
-        for (Integer recipeId : recipeMap.keySet()) {
-            if (recipeId.equals(id)) {
-                return recipeMap.get(id);
-            }
-        }
-        return null;
+        return recipeMap.get(id);
     }
 
     @Override

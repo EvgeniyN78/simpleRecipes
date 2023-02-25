@@ -16,10 +16,8 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Integer addIngredient(Ingredient ingredient) {
-        for (Ingredient ingredients : ingredientMap.values()) {
-            if (ingredients.equals(ingredient)) {
-                return null;
-            }
+        if (ingredientMap.containsValue(ingredient)) {
+            return null;
         }
         ingredientMap.put(id, ingredient);
         return id++;
@@ -27,12 +25,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient getIngredient(Integer id) {
-        for (Integer ingredientID : ingredientMap.keySet()) {
-            if (ingredientID.equals(id)) {
-                return ingredientMap.get(id);
-            }
-        }
-        return null;
+        return ingredientMap.get(id);
     }
 
     @Override
