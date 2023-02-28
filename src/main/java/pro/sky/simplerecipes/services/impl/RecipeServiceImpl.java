@@ -14,7 +14,6 @@ public class RecipeServiceImpl implements RecipeService {
     private final Map<Integer, Recipe> recipeMap = new HashMap<>();
     private static Integer id = 0;
 
-
     @Override
     public Integer addRecipe(Recipe recipe) {
         if (recipeMap.containsValue(recipe)) {
@@ -51,5 +50,4 @@ public class RecipeServiceImpl implements RecipeService {
     public Collection<Recipe> getAllRecipe() {
         return recipeMap.values();
     }
-
 }

@@ -1,6 +1,7 @@
 package pro.sky.simplerecipes.controllers;
 
-import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pro.sky.simplerecipes.model.Recipe;
@@ -10,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/recipe")
+//@Tag(name = "Рецепты", description = "CRUD-операции для работы с рецептами")
 public class RecipeControllers {
 
     private final RecipeService recipeService;
@@ -19,7 +21,8 @@ public class RecipeControllers {
     }
 
     @PostMapping
-    public ResponseEntity<Integer> addRecipe(@Valid @RequestBody Recipe recipe) {
+//    @Operation(summary = "Добавление рецептов")
+    public ResponseEntity<Integer> addRecipe(@RequestBody Recipe recipe) {
         Integer id = recipeService.addRecipe(recipe);
         if (id == null) {
             return ResponseEntity.notFound().build();
